@@ -1,0 +1,144 @@
+<html>
+<head>
+
+</head>
+<body>
+
+<div id="canvases"></div>
+<select id="bands">
+</select>
+
+<!--<script src="../dist/geotiff.min.js"></script>-->
+<script src="../dist/geotiff.min.js"></script>
+<script src="lib/plotty.min.js"></script>
+
+<script>
+
+
+var imageWindow = [0, 0, 500, 500];
+
+var tiffs = [
+  //"lidar.tif",
+  // "stripped.tiff",
+  // "tiled.tiff",
+  // "tiledplanar.tiff",
+  // "float32.tiff",
+  // "uint32.tiff",
+  // "int32.tiff",
+  // "float64.tiff",
+  "lzw.tiff",
+];
+
+var rgbtiffs = []
+
+
+
+var bandsSelect = document.getElementById("bands");
+
+for (var i = 0; i < 15; ++i) {
+  var option = document.createElement("option");
+  option.value = i;
+  option.text = i+1;
+  bandsSelect.appendChild(option);
+}
+
+tiffs.forEach(function(filename) {
+  var xhr = new XMLHttpRequest();
+  //xhr.open('GET', 'data/' + filename, true);
+  xhr.open('GET', 'http://vtdas-dave.zamg.ac.at/davprc/coverage/WRFCHEM_EYJA_VASH_AL_D01_20100520.210000.tif', true);
+  xhr.responseType = 'arraybuffer';
+
+  var div = document.createElement("div");
+  div.style.float = "left";
+  var header = document.createElement("p");
+  header.innerHTML = filename;
+
+  var canvas = document.createElement("canvas");
+  canvas.id = filename;
+  canvas.width = 500;
+  canvas.height = 500;
+
+  div.appendChild(header);
+  div.appendChild(canvas);
+
+  document.getElementById("canvases").appendChild(div);
+
+  xhr.onload = function(e) {
+
+    console.log(this.response, this.response.byteLength)
+    var parser = GeoTIFF.parse(this.response);
+    var image = parser.getImage();
+
+    console.log(image);
+    console.log(image.getTiePoints());
+
+    console.log(image.getGDALMetadata())
+
+
+    var plot;
+
+    bandsSelect.addEventListener("change", function(e) {
+      var rasters = image.readRasters({samples: [parseInt(bandsSelect.options[bandsSelect.selectedIndex].value)]});
+      plot.setData(rasters[0], image.getWidth(), image.getHeight());
+      plot.render();
+    });
+
+    var rasters = image.readRasters({samples: [0]});
+    var canvas = document.getElementById(filename);
+    plot = new plotty.plot(canvas, rasters[0], image.getWidth(), image.getHeight(), [10, 65000], "viridis", false);
+    plot.render();
+  };
+
+  xhr.send();
+});
+
+
+rgbtiffs.forEach(function(filename) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'data/' + filename, true);
+  xhr.responseType = 'arraybuffer';
+
+  var div = document.createElement("div");
+  div.style.float = "left";
+  var header = document.createElement("p");
+  header.innerHTML = filename;
+
+  var canvas = document.createElement("canvas");
+  canvas.id = filename;
+
+  div.appendChild(header);
+  div.appendChild(canvas);
+
+  document.getElementById("canvases").appendChild(div);
+
+  xhr.onload = function(e) {
+    var parser = GeoTIFF.parse(this.response);
+    var image = parser.getImage();
+
+    var plot;
+
+    image.readRasters({interleave: true}, function(raster) {
+      canvas.width = image.getWidth();
+      canvas.height = image.getHeight();
+      var ctx = canvas.getContext("2d");
+      var imageData = ctx.createImageData(image.getWidth(), image.getHeight());
+      var data = imageData.data;
+      var o = 0;
+      for (var i = 0; i < raster.length; i+=3) {
+        data[o] = raster[i];
+        data[o+1] = raster[i+1];
+        data[o+2] = raster[i+2];
+        data[o+3] = 255;
+        o += 4;
+      }
+      ctx.putImageData(imageData, 0, 0);
+    });
+  };
+
+  xhr.send();
+});
+
+
+</script>
+</body>
+</html>

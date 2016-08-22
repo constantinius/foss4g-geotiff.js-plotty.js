@@ -1,0 +1,96 @@
+{
+  "_args": [
+    [
+      "plotty",
+      "/Users/fabian/dev/foss4g_2016_geotiff_plotty"
+    ]
+  ],
+  "_from": "plotty@*",
+  "_id": "plotty@0.1.2",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/plotty",
+  "_nodeVersion": "0.10.25",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/plotty-0.1.2.tgz_1463566804423_0.4443498372565955"
+  },
+  "_npmUser": {
+    "email": "daniel.santillan@eox.at",
+    "name": "santilland"
+  },
+  "_npmVersion": "3.7.3",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "plotty",
+    "raw": "plotty",
+    "rawSpec": "",
+    "scope": null,
+    "spec": "*",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/plotty/-/plotty-0.1.2.tgz",
+  "_shasum": "99661080e7902a6387c7696f3b9117488702fbd3",
+  "_shrinkwrap": null,
+  "_spec": "plotty",
+  "_where": "/Users/fabian/dev/foss4g_2016_geotiff_plotty",
+  "bugs": {
+    "url": "https://github.com/santilland/plotty/issues"
+  },
+  "dependencies": {},
+  "description": "plotty ======",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-autoprefixer": "^3.0.3",
+    "grunt-bump": "^0.6.0",
+    "grunt-concurrent": "^2.0.3",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-compass": "^1.0.3",
+    "grunt-contrib-compress": "^0.13.0",
+    "grunt-contrib-concat": "^0.5.1",
+    "grunt-contrib-connect": "^0.11.2",
+    "grunt-contrib-copy": "^0.8.1",
+    "grunt-contrib-cssmin": "^0.14.0",
+    "grunt-contrib-htmlmin": "^0.4.0",
+    "grunt-contrib-imagemin": "^0.9.4",
+    "grunt-contrib-jshint": "^0.11.3",
+    "grunt-contrib-uglify": "^0.9.2",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-jsdoc": "^1.1.0",
+    "grunt-release": "^0.13.0",
+    "grunt-svgmin": "^2.0.1",
+    "grunt-usemin": "^3.1.1",
+    "ink-docstrap": "^1.1.2",
+    "jshint-stylish": "^2.0.1",
+    "load-grunt-tasks": "^3.3.0",
+    "time-grunt": "^1.2.1"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "99661080e7902a6387c7696f3b9117488702fbd3",
+    "tarball": "https://registry.npmjs.org/plotty/-/plotty-0.1.2.tgz"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "gitHead": "a3eb550efabdaa23a897394fe5c17848f9ec219a",
+  "homepage": "https://github.com/santilland/plotty#readme",
+  "main": "src/plotty.js",
+  "maintainers": [
+    {
+      "name": "santilland",
+      "email": "daniel.santillan@eox.at"
+    }
+  ],
+  "name": "plotty",
+  "optionalDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/santilland/plotty.git"
+  },
+  "scripts": {},
+  "version": "0.1.2"
+}

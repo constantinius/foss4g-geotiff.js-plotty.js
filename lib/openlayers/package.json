@@ -1,0 +1,181 @@
+{
+  "_args": [
+    [
+      "openlayers",
+      "/Users/fabian/dev/foss4g_2016_geotiff_plotty"
+    ]
+  ],
+  "_from": "openlayers@*",
+  "_id": "openlayers@3.17.1",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/openlayers",
+  "_nodeVersion": "6.0.0",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/openlayers-3.17.1.tgz_1467620206159_0.893763960339129"
+  },
+  "_npmUser": {
+    "email": "bartvde@boundlessgeo.com",
+    "name": "bartvde"
+  },
+  "_npmVersion": "3.8.6",
+  "_phantomChildren": {
+    "brace-expansion": "1.1.6",
+    "fs.realpath": "1.0.0",
+    "inflight": "1.0.5",
+    "inherits": "2.0.1",
+    "once": "1.3.3",
+    "path-is-absolute": "1.0.0"
+  },
+  "_requested": {
+    "name": "openlayers",
+    "raw": "openlayers",
+    "rawSpec": "",
+    "scope": null,
+    "spec": "*",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/openlayers/-/openlayers-3.17.1.tgz",
+  "_shasum": "9d5ae5671bd03ec04f9eb45e7895192b1e169868",
+  "_shrinkwrap": null,
+  "_spec": "openlayers",
+  "_where": "/Users/fabian/dev/foss4g_2016_geotiff_plotty",
+  "browser": "dist/ol.js",
+  "bugs": {
+    "url": "https://github.com/openlayers/ol3/issues"
+  },
+  "dependencies": {
+    "async": "1.5.2",
+    "browserify": "13.0.1",
+    "closure-util": "1.15.0",
+    "derequire": "2.0.3",
+    "fs-extra": "0.30.0",
+    "glob": "7.0.5",
+    "handlebars": "4.0.5",
+    "jsdoc": "3.4.0",
+    "marked": "0.3.5",
+    "metalsmith": "2.1.0",
+    "metalsmith-layouts": "1.6.5",
+    "nomnom": "1.8.1",
+    "pbf": "2.0.1",
+    "pixelworks": "1.1.0",
+    "rbush": "2.0.1",
+    "temp": "0.8.3",
+    "vector-tile": "1.2.1",
+    "walk": "2.3.9"
+  },
+  "description": "Build tools and sources for developing OpenLayers based mapping applications",
+  "devDependencies": {
+    "clean-css": "3.4.18",
+    "coveralls": "2.11.9",
+    "debounce": "^1.0.0",
+    "eslint": "2.13.1",
+    "eslint-config-openlayers": "5.0.0",
+    "expect.js": "0.3.1",
+    "gaze": "^1.0.0",
+    "istanbul": "0.4.4",
+    "jquery": "2.2.4",
+    "mocha": "2.5.3",
+    "mocha-phantomjs-core": "^1.3.0",
+    "mustache": "2.2.1",
+    "phantomjs-prebuilt": "2.1.7",
+    "proj4": "2.3.14",
+    "resemblejs": "2.2.1",
+    "sinon": "1.17.4",
+    "slimerjs": "0.906.2"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "9d5ae5671bd03ec04f9eb45e7895192b1e169868",
+    "tarball": "https://registry.npmjs.org/openlayers/-/openlayers-3.17.1.tgz"
+  },
+  "eslintConfig": {
+    "extends": "openlayers",
+    "globals": {
+      "ArrayBuffer": false,
+      "Float32Array": false,
+      "Uint16Array": false,
+      "Uint32Array": false,
+      "Uint8Array": false,
+      "Uint8ClampedArray": false,
+      "goog": false,
+      "ol": false,
+      "proj4": false
+    },
+    "rules": {
+      "no-constant-condition": 0
+    }
+  },
+  "ext": [
+    {
+      "module": "rbush",
+      "browserify": true
+    },
+    {
+      "module": "pbf",
+      "browserify": true
+    },
+    {
+      "module": "pixelworks",
+      "browserify": true
+    },
+    {
+      "module": "vector-tile",
+      "name": "vectortile",
+      "browserify": true
+    }
+  ],
+  "gitHead": "eb92c268ab25a35381cc86d5968778ad5a1fd17a",
+  "homepage": "http://openlayers.org/",
+  "keywords": [
+    "map",
+    "mapping",
+    "ol3"
+  ],
+  "license": "BSD-2-Clause",
+  "main": "dist/ol.js",
+  "maintainers": [
+    {
+      "name": "tschaub",
+      "email": "tim.schaub@gmail.com"
+    },
+    {
+      "name": "elemoine",
+      "email": "eric.lemoine@gmail.com"
+    },
+    {
+      "name": "fredj",
+      "email": "frederic.junod@gmail.com"
+    },
+    {
+      "name": "ahocevar",
+      "email": "andreas.hocevar@gmail.com"
+    },
+    {
+      "name": "bartvde",
+      "email": "bartvde@boundlessgeo.com"
+    }
+  ],
+  "name": "openlayers",
+  "optionalDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/openlayers/ol3.git"
+  },
+  "scripts": {
+    "debug-server": "node tasks/serve-lib.js",
+    "install": "node tasks/install.js",
+    "postinstall": "closure-util update",
+    "pretest": "eslint tasks test test_rendering src examples",
+    "start": "node tasks/serve.js",
+    "test": "node tasks/test.js"
+  },
+  "style": [
+    "css/ol.css"
+  ],
+  "version": "3.17.1"
+}
