@@ -257,36 +257,38 @@
 
         <section>
           <h2>Putting it together</h2>
-          <canvas id="ex1_canvas" style="height: 300px; width: 300px"></canvas>
-          <span style="width:100%; margin-bottom: 2em">
-            <select style="width:100%" id="ex1_colorscaleselect"></select>
-          </span>
-          <span style="display: table;width:100%">
-            <label style="width: 3em">Min:</label>
-            <span style="display: table-cell;width: auto">
-              <input id="ex1_min" type="range" min="0" max="5000" value="0" style="width:100%"/>
-            </span>
-            <label for="ex1_min" id="ex1_min_label" style="display: table-cell;width:3em;text-align:right">0</label>
-          </span>
-          <span style="display: table;width:100%">
-            <label style="width: 3em">Max: </label>
-            <span style="display: table-cell;width: auto">
-              <input id="ex1_max" type="range" min="0" max="5000" value="5000" style="width:100%"/>
-            </span>
-            <label for="ex1_max" id="ex1_max_label" style="display: table-cell;width:3em;text-align:right">5000</label>
-          </span>
-          <span style="display: table;width:100%">
-            <label style="width: 3em">Clamp Low: </label>
-            <span style="display: table-cell;width: auto">
-              <input type="checkbox" id="ex1_clamp_low" checked/>
-            </span>
-          </span>
-          <span style="display: table;width:100%">
-            <label style="width: 3em">Clamp High: </label>
-            <span style="display: table-cell;width: auto">
-              <input type="checkbox" id="ex1_clamp_high" checked/>
-            </span>
-          </span>
+          <canvas id="ex1_canvas" style="height: 300px; width: 300px; float: left"></canvas>
+
+          <table>
+            <tr>
+              <td>Colorscale</td>
+              <td colspan="2"><select id="ex1_colorscaleselect"></select></td>
+            </tr>
+            <tr>
+              <td>Min</td>
+              <td><input id="ex1_min" type="range" min="0" max="5000" value="0"/></td>
+              <td><label for="ex1_min" id="ex1_min_label">0</label></td>
+            </tr>
+
+            <tr>
+              <td>Max</td>
+              <td><input id="ex1_max" type="range" min="0" max="5000" value="5000"/></td>
+              <td><label for="ex1_max" id="ex1_max_label">5000</label></td>
+            </tr>
+
+            <tr>
+              <td>Clamp Low</td>
+              <td><input type="checkbox" id="ex1_clamp_low" checked/></td>
+              <td></td>
+            </tr>
+
+            <tr>
+              <td>Clamp High</td>
+              <td><input type="checkbox" id="ex1_clamp_high" checked/></td>
+              <td></td>
+            </tr>
+          </table>
+
           <script>
         fetch('data/ASA_WSM_1PNDPA20050331_075939_000000552036_00035_16121_0775.tiff')
           .then(response => response.arrayBuffer())
@@ -340,7 +342,8 @@
         </section>
 
         <section id="slide-map-example">
-          <p><div id="map-loading">Loading map...</div><div id="ex2_map" width="700" height="300" style=""></div></p>
+          <h2>Putting it together</h2>
+          <p><div id="map-loading">Loading map...</div><div id="ex2_map" style="width: 100%; height: 500px"></div></p>
           <script>
           var map = null;
           Reveal.addEventListener('slidechanged', function(event) {
