@@ -69,14 +69,19 @@
         <section>
           <section>
             <h2>Premise</h2>
-            <p>Scientific raster data exploration either desktop based or very restricted</p>
+            <p>Scientific Raster Data Exploration</p>
+            <p>EO Acquisitions/Model Data</p>
+          </section>
+
+          <section>
+            <h2>Current Status</h2>
             <p>Prerendered</p>
-            <p>Or Server-Side On-Demand styling</p>
+            <p>Server-Side On-Demand Rendering</p>
           </section>
 
           <section>
             <h2>Goals</h2>
-            <p>Fully interactive raster visualization</p>
+            <p>Fully interactive raster exploration</p>
             <p>HTML / JavaScript only</p>
             <p>Integration with Web-Mapping Frameworks</p>
           </section>
@@ -97,16 +102,29 @@
 
         <section>
           <section>
-            <h2>Transfer Format - GeoTIFF</h2>
+            <h2>Transfer Format</h2>
+            <p>Browsers usually only support RGB(A) (JPEG/PNG)</p>
+            <p>Workaround - encode Float/Int as RGBA</p>
+            <p>Various Drawbacks:</p>
+            <ul>
+              <li>Only up to 32bit</li>
+              <li>Not self-explanatory</li>
+              <li>Requires decoding</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>GeoTIFF</h2>
             <p>Good software support</p>
             <p>Flexible (<b>T</b>housand <b>I</b>ncompatible <b>F</b>ile <b>F</b>ormats)</p>
             <p>Extensible</p>
             <p>Geographic Metadata</p>
+            <p>WCS - GeoTIFF application profile</p>
           </section>
 
           <section>
-            <h2>GeoTIFF.js - technologies</h2>
-            <p>Pure JavaScript (ECMA 2015) implementation</p>
+            <h2>GeoTIFF.js</h2>
+            <p>Pure JavaScript (ECMAScript 2015) implementation</p>
             <p>Typed Arrays + DataViews</p>
           </section>
 
@@ -147,7 +165,7 @@
                   var ctx = canvas.getContext('2d');
                   var imageData = ctx.createImageData(image.getWidth(), image.getHeight());
 
-                  var pixels = image.readRasters({ interleave: true })
+                  var pixels = image.readRasters({ interleave: true });
                   for (var i = 0; i < pixels.length; ++i) {
                     imageData.data[i] = pixels[i];
                   }
@@ -162,23 +180,23 @@
           <section>
             <h2>GeoTIFF.js - Demo - Under the Hood</h2>
             <pre><code class="hljs" data-trim>
-  fetch('data/rgba.tiff')
-    .then(function(response) { return response.arrayBuffer(); })
-    .then(function(buffer) {
-      var tiff = GeoTIFF.parse(buffer);
-      var image = tiff.getImage();
+fetch('data/rgba.tiff')
+  .then(function(response) { return response.arrayBuffer(); })
+  .then(function(buffer) {
+    var tiff = GeoTIFF.parse(buffer);
+    var image = tiff.getImage();
 
-      var ctx = document.getElementById('canvas').getContext('2d');
-      var imageData = ctx.createImageData(
-        image.getWidth(), image.getHeight());
+    var ctx = document.getElementById('canvas').getContext('2d');
+    var imageData = ctx.createImageData(
+      image.getWidth(), image.getHeight());
 
-      var pixels = image.readRasters({ interleave: true })
-      for (var i = 0; i < pixels.length; ++i) {
-        imageData.data[i] = pixels[i];
-      }
+    var pixels = image.readRasters({ interleave: true });
+    for (var i = 0; i < pixels.length; ++i) {
+      imageData.data[i] = pixels[i];
+    }
 
-      ctx.putImageData(imageData, 0, 0);
-    });
+    ctx.putImageData(imageData, 0, 0);
+  });
             </code></pre>
           </section>
         </section>
@@ -445,7 +463,8 @@
 
         <section>
           <h2>Future Work</h2>
-          <p>Compression: LZW and Deflate</p>
+          <p>geotiff.js: Compression: LZW and Deflate</p>
+          <p>plotty.js: Performance, Additional Interpolations</p>
           <p>Integrations with OpenLayers, Leaflet and Cesium</p>
         </section>
 
